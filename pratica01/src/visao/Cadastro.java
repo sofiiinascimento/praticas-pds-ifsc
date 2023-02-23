@@ -1,4 +1,4 @@
-package visão;
+package visao;
 
 import java.awt.EventQueue;
 
@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JButton;
 
 public class Cadastro extends JFrame {
 
@@ -67,5 +68,9 @@ public class Cadastro extends JFrame {
 		textField_1.setBounds(260, 145, 141, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		JButton btnCadastrar = new JButton("CADASTRAR");
+		btnCadastrar.setBounds(270, 198, 118, 23);
+		contentPane.add(btnCadastrar);
 	}
 }

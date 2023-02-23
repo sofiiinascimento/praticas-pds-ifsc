@@ -16,75 +16,71 @@ public class PessoaDAO {
 	// CRUD - C - CREATE
 	public boolean inserir(Pessoa p) {
 
-		// instanciar classe Conxao
 		con = Conexao.getInstancia();
-
-		// abrir conexao
-		con.conectar();
 		Connection c = con.conectar();
+
 		try {
 			String query = "INSERT INTO pessoa" + "(cpf, nome) VALUES (?, ?);";
-			PreparedStatement stm = c.prepareStatement(null);
-
+			PreparedStatement stm = c.prepareStatement(query);
 			stm.setInt(1, 125);
 			stm.setString(2, "Sofia");
-
-			int valida = stm.executeUpdate();
-
+			stm.executeUpdate();
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			con.fecharConexao();
 		}
 
-		// fechar conexao
-		con.fecharConexao();
 		return false;
 	}
 
 	public boolean alterar(Pessoa p) {
-		Connection conn = Conexao.getInstancia().conectar();
-		
+		con = Conexao.getInstancia();
+		Connection c = con.conectar();
 		try {
 			String query = "UPDATE pessoa SET nome = ? WHERE cpf = ?";
-			PreparedStatement stm = conn.prepareStatement(query);
+			PreparedStatement stm = c.prepareStatement(query);
 			stm.setString(1, p.getNome());
 			stm.setLong(2, p.getCpf());
 			stm.executeUpdate();
 			return true;
-			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			con.fecharConexao();
 		}
-		
+
 		return false;
 	}
 
 	public boolean deletar(Pessoa p) {
-		Connection con = Conexao.conectar();
-		
+		con = Conexao.getInstancia();
+		Connection c = con.conectar();
+
 		try {
 			String query = "DELETE FROM pessoa WHERE cpf = ?";
-			PreparedStatement stm = con.prepareStatement(query);
+			PreparedStatement stm = c.prepareStatement(query);
 			stm.setLong(1, p.getCpf());
 			stm.executeUpdate();
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			con.fecharConexao();
 		}
-		Conexao.fecharConnection();
+
 		return false;
 	}
 
 	// CRUD - R - READ
 	public ArrayList<Pessoa> listarPessoas() {
-	
-		ArrayList<Pessoa>pessoas = new ArrayList<>();
-		
-		// instanciar classe Conxao
-		con = Conexao.getInstancia();
 
-		// abrir conexao
-		con.conectar();
+		ArrayList<Pessoa> pessoas = new ArrayList<>();
+
+		con = Conexao.getInstancia();
 		Connection c = con.conectar();
+
 		try {
 
 			Statement stm = c.prepareStatement(null);
@@ -101,10 +97,10 @@ public class PessoaDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			con.fecharConexao();
 		}
 
-		// fechar conexao
-		con.fecharConexao();
 		return pessoas;
 	}
 
