@@ -40,11 +40,37 @@ public class PessoaDAO {
 		return false;
 	}
 
-	public boolean atualizar(Pessoa p) {
+	public boolean alterar(Pessoa p) {
+		Connection conn = Conexao.getInstancia().conectar();
+		
+		try {
+			String query = "UPDATE pessoa SET nome = ? WHERE cpf = ?";
+			PreparedStatement stm = conn.prepareStatement(query);
+			stm.setString(1, p.getNome());
+			stm.setLong(2, p.getCpf());
+			stm.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 
 	public boolean deletar(Pessoa p) {
+		Connection con = Conexao.conectar();
+		
+		try {
+			String query = "DELETE FROM pessoa WHERE cpf = ?";
+			PreparedStatement stm = con.prepareStatement(query);
+			stm.setLong(1, p.getCpf());
+			stm.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Conexao.fecharConnection();
 		return false;
 	}
 

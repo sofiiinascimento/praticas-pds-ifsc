@@ -1,4 +1,4 @@
-
+create database sofia;
 USE sofia;
 create table pessoa (
 	cpf INT PRIMARY KEY,
