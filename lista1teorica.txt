@@ -1,0 +1,23 @@
+1) Pesquise e descreva: no contexto de programação, o que é uma “biblioteca” e o que é uma “API”? Diferencie ambas utilizando as suas próprias palavras.
+R: Biblioteca é uma coleção de recursos e conjuntos de funções que foram escritas para facilitar a vida do desenvolvedor. A API é uma interfacede programação de aplicação, ou seja, um conjunto de ferramentas, com definições e protocolos para a criação e aplicações de software. A API conecta soluções e serviços, sem precisar saber como esses elementos foram implementados.
+
+2) Defina brevemente e descreva a razão para se utilizar os padrões de projetos abaixo:
+a) MVC
+R: Utilizamos projetos nesse modelo para nos auxiliar no desenvolvimento da aplicação, facilitando a troca de informações entre a interface do usuário aos dads do banco. Faz com que as respostas sejam mais rápidas e dinâmica, auxiliando também o desenvolvedor no momento que precisar fazer um ajuste no código. 
+
+A função da classe Modelo é de gerenciar e controla o modo de como os dados se comportam. Ela recebe as informações da classe Controle, valida e envia uma respostade acordo com a situação. 
+
+A função da classe Controle é de intermediar as requições enviadas pela classe Visão com as respostas que são fornecidas pela classe Modelo, processando, assim, os dados que o usuário informou.
+
+A função da classee Visão é de apresentar as informações de forma visual ao usuário do sistema, ou seja, todo recurso ligado a aparência como as mensagens, os botões e telas, sendo responsável em transmitir questionamentos a classe Controle e assim entregar as respostas ao usuário. 
+b) DAO
+R: É um padrão de projeto o qual fornece uma interface que abstrai o acesso a dados, também lê e guarda esses dados a partir de sua origem e encapsula o acesso de uma forma que as outras classes não possuem a necessidade de saber sobre o que aconteceu. 
+c) Singleton
+R: É um padrão de projeto par garantir que apenas um objeto de um tipo exista e forneça apenas um ponto de acesso a ele para outro código.
+
+3) O que é JDBC e como ele se relaciona com bancos de dados e a programação em Java? 
+R: JDBC é uma API que possibilta que um sistema consiga acessar o banco de dados que esteja configurado no local ou remotamente.
+
+
+
+
