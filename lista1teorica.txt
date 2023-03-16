@@ -18,6 +18,21 @@ R: É um padrão de projeto par garantir que apenas um objeto de um tipo exista 
 3) O que é JDBC e como ele se relaciona com bancos de dados e a programação em Java? 
 R: JDBC é uma API que possibilta que um sistema consiga acessar o banco de dados que esteja configurado no local ou remotamente.
 
+4) O que significa “CRUD” e como ele se  relaciona com os quatro métodos que implementamos em nossas classes DAO?
+R: O CRUD resumi quatro operações essenciais que são realizadas em um sistema integrado aos bancos de dados.
+C = CREATE
+R = READ
+U = UPDATE
+D = DELETE
+Através das classes DAO obtemos o aceso aos dados, utilizando o CRUD.
 
+5) Explique brevemente e com suas palavras qual a utilidade das três classes abaixo:
+Connection - representa a nossa conexão com o banco de dados. É criado um objeto para instruir o SQL que será executado.
+PreparedStatement - a partir dela preparamos a query SQL, estabelecendo parâmetros em uma ordem utilizando "?" para parâmetro.
+Statement - nessa classe montamos a query utilizando a concatenação de Strings.
 
+6) Considere a execução de uma query SQL no banco de dados. Se esperamos um retorno de dados do banco de dados devemos usar a classe Statement ou PreparedStatement? Justifique. (Dica: é possível usar ambas; procure a diferença técnica entre as classes.).
+R: Quando utilizamos a classe PreparedStatement estaremos preparando a query para receber os parâmetros estabelecidos em uma ordem. Se utilizamos a classe Statement montamos a query diretamente com a concatenação das Strings.
 
+7) Com as suas próprias palavras, diferencie SWING do WINDOWBUILDER
+R: SWING é um framework utilizado para implementar uma interface no Java. E o WINDOWBUILDER, por sua vez, nos possibilita a construção de telas mais etilizadas e personalizadas.
