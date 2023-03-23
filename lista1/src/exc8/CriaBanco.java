@@ -11,7 +11,7 @@ public class CriaBanco {
 	public static void main(String[] args) {
 	
 		try {
-			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/","root","aluno");
+			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/","root","8-EeP&;ZIX");
 			Statement stm = conexao.createStatement();
 			String WSQL = "create database baquinhodasofi;";
 			stm.executeUpdate(WSQL);
@@ -19,7 +19,7 @@ public class CriaBanco {
 			WSQL = "USE baquinhodasofi;";
 			stm.executeUpdate(WSQL);
 			
-			String query = "create table pessoas(id int PRIMARY KEY AUTO_INCREMENT, nome varchar(255) NOT NULL, email varchar(255) NOT NULL);";
+			String query = "create table pessoas(cpf long PRIMARY KEY, nome varchar(255) NOT NULL, email varchar(255) NOT NULL);";
 			stm.executeUpdate(query);
 			
 			conexao.close();
