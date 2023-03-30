@@ -1,6 +1,13 @@
 package exc9;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,8 +16,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 
 public class Ativ9 extends JFrame {
 
@@ -18,6 +24,7 @@ public class Ativ9 extends JFrame {
 	private JTextField textCpf;
 	private JTextField textNome;
 	private JTextField textEmail;
+	Connection conexao;
 
 	/**
 	 * Launch the application.
@@ -80,6 +87,28 @@ public class Ativ9 extends JFrame {
 		JButton btnCadastrar = new JButton("CADASTRAR");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					conexao = DriverManager.getConnection("jdbc:mysql://localhost/" + "baquinhodasofi","root","8-EeP&;ZIX");
+					String wSQL= "INSERT INTO pessoas(cpf, nome, email) VALUES (?,?,?)";
+					PreparedStatement stm = conexao.prepareStatement(wSQL);
+					
+					Long cpf = Long.valueOf(textCpf.getText());
+					
+					stm.setLong(1,cpf);
+					stm.setString(2, textNome.getText());
+					stm.setString(3,textEmail.getText());
+					
+					stm.executeUpdate();
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				} 
+				
+				textCpf.setText("");
+				textNome.setText("");
+				textEmail.setText("");
+				
 			}
 		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));

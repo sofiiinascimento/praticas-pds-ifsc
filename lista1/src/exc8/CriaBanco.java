@@ -13,13 +13,13 @@ public class CriaBanco {
 		try {
 			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/","root","8-EeP&;ZIX");
 			Statement stm = conexao.createStatement();
-			String WSQL = "create database baquinhodasofi;";
+			String WSQL = "create database if not exists baquinhodasofi";
 			stm.executeUpdate(WSQL);
 			
 			WSQL = "USE baquinhodasofi;";
 			stm.executeUpdate(WSQL);
 			
-			String query = "create table pessoas(cpf long PRIMARY KEY, nome varchar(255) NOT NULL, email varchar(255) NOT NULL);";
+			String query = "create table if not exists pessoas(cpf bigint PRIMARY KEY, nome varchar(255) NOT NULL, email varchar(255) NOT NULL);";
 			stm.executeUpdate(query);
 			
 			conexao.close();
