@@ -92,7 +92,7 @@ public class Cadastro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					conexao = DriverManager.getConnection("jdbc:mysql://localhost/" + "baquinhodasofi","root","8-EeP&;ZIX");
+					conexao = DriverManager.getConnection("jdbc:mysql://localhost/" + "baquinhodasofi","root","");
 					String wSQL= "INSERT INTO pessoas(cpf, nome, email) VALUES (?,?,?)";
 					PreparedStatement stm = conexao.prepareStatement(wSQL);
 					

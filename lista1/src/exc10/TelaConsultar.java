@@ -65,7 +65,7 @@ public class TelaConsultar extends JFrame {
 		
 		ArrayList<People> List = new ArrayList<>();
 		
-		conexao = DriverManager.getConnection("jdbc:mysql://localhost/" + "baquinhodasofi","root","8-EeP&;ZIX");
+		conexao = DriverManager.getConnection("jdbc:mysql://localhost/" + "baquinhodasofi","root","");
 			
 			String wSQL = "SELECT * FROM pessoas";
 			Statement stm = conexao.prepareStatement(wSQL);

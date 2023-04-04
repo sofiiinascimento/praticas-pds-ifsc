@@ -11,7 +11,7 @@ public class CriaBanco {
 	public static void main(String[] args) {
 	
 		try {
-			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/","root","8-EeP&;ZIX");
+			Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost/","root","");
 			Statement stm = conexao.createStatement();
 			String WSQL = "create database if not exists baquinhodasofi";
 			stm.executeUpdate(WSQL);
