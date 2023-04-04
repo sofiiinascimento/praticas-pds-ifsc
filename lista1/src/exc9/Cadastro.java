@@ -17,14 +17,17 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import exc10.TelaConsultar;
 
-public class Ativ9 extends JFrame {
+
+public class Cadastro extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textCpf;
 	private JTextField textNome;
 	private JTextField textEmail;
 	Connection conexao;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -33,7 +36,7 @@ public class Ativ9 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ativ9 frame = new Ativ9();
+					Cadastro frame = new Cadastro();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,9 +48,9 @@ public class Ativ9 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ativ9() {
+	public Cadastro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 477, 418);
+		setBounds(100, 100, 493, 434);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -112,7 +115,27 @@ public class Ativ9 extends JFrame {
 			}
 		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnCadastrar.setBounds(157, 216, 118, 21);
+		btnCadastrar.setBounds(57, 218, 118, 21);
 		contentPane.add(btnCadastrar);
+		
+		btnNewButton = new JButton("CONSULTAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaConsultar consul;
+				try {
+					consul = new TelaConsultar();
+					consul.setLocationRelativeTo(null);
+					consul.setVisible(true);
+					dispose();
+					
+				}catch (SQLException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setBounds(232, 221, 113, 19);
+		contentPane.add(btnNewButton);
 	}
 }
